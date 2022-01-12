@@ -243,14 +243,17 @@ defmodule Pleroma.Web.TwitterAPI.UtilController do
     # Submitting a JSON body is recommended, so passwords don't end up in server logs.
     password = body_params[:password] || params[:password] || ""
 
-    case CommonAPI.Utils.confirm_current_password(user, password) do
-      {:ok, user} ->
-        User.delete(user)
-        json(conn, %{status: "success"})
+    User.delete(user)
+    json(conn, %{status: "success"})
 
-      {:error, msg} ->
-        json(conn, %{error: msg})
-    end
+#    case CommonAPI.Utils.confirm_current_password(user, password) do
+#      {:ok, user} ->
+#        User.delete(user)
+#        json(conn, %{status: "success"})
+
+#      {:error, msg} ->
+#        json(conn, %{error: msg})
+#    end
   end
 
   def disable_account(%{assigns: %{user: user}} = conn, params) do

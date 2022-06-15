@@ -467,6 +467,19 @@ defmodule Pleroma.Web.ActivityPub.Transmogrifier do
   defp handle_incoming_normalised(
          %{
            "type" => "Like",
+           "_misskey_reaction" => "⭐",
+         } = data,
+         options
+       ) do
+     data
+     |> Map.delete("_misskey_reaction")
+     |> Map.delete("content")
+     |> handle_incoming(options)
+  end
+
+  defp handle_incoming_normalised(
+         %{
+           "type" => "Like",
            "content" => reaction
          } = data,
          options

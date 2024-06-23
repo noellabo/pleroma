@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## UNRELEASED
+
+## Fixed
+- Emoji are now federated as anonymous objects, fixing issues with
+  some strict servers e.g. rejecting e.g. remote emoji reactions
+
 ## 2024.04.1 (Security)
 
 ## Fixed

@@ -1619,6 +1619,7 @@ defmodule Pleroma.Web.ActivityPub.ActivityPub do
         case URI.parse(url) do
           %URI{scheme: "http"} -> true
           %URI{scheme: "https"} -> true
+          %URI{scheme: "at"} -> true
           _ -> false
         end
       end)

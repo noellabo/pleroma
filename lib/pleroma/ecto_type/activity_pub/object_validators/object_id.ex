@@ -12,7 +12,7 @@ defmodule Pleroma.EctoType.ActivityPub.ObjectValidators.ObjectID do
     case URI.parse(object) do
       %URI{host: nil} -> :error
       %URI{host: ""} -> :error
-      %URI{scheme: scheme} when scheme in ["https", "http"] -> {:ok, object}
+      %URI{scheme: scheme} when scheme in ["https", "http", "at"] -> {:ok, object}
       _ -> :error
     end
   end
